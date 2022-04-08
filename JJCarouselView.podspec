@@ -9,6 +9,6 @@ Pod::Spec.new do |spec|
   spec.author       = { "zgjff" => "zguijie1005@163.com" }
   spec.platform     = :ios, "11.0"
   spec.source       = { :git => "https://github.com/zgjff/JJCarouselView.git", :tag => "#{spec.version}" }
-  s.source_files = 'Sources/*.swift'
-  s.swift_version = '5.6'
+  spec.source_files = 'Sources/*.swift'
+  spec.swift_version = '5.6'
 end
