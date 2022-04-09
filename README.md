@@ -2,7 +2,7 @@ JJCarouselView
 =================
 
 [![GitHub](https://img.shields.io/github/license/zgjff/JJCarouselView)](https://www.apache.org/licenses/LICENSE-2.0.html)
-![swift-5.6](https://img.shields.io/badge/swift-5.6-blue)
+![swift-5.0](https://img.shields.io/badge/Swift-5.0-blue)
 ![iOS-11.0](https://img.shields.io/badge/iOS-11.0-red)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/zgjff/JJCarouselView)](https://github.com/zgjff/JJCarouselView)
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)

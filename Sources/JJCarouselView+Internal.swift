@@ -114,7 +114,7 @@ extension JJCarouselView {
         if let didEnterBackgroundObserver = didEnterBackgroundObserver {
             NotificationCenter.default.removeObserver(didEnterBackgroundObserver)
         }
-        if let willEnterForegroundObserver = didEnterBackgroundObserver {
+        if let willEnterForegroundObserver = willEnterForegroundObserver {
             NotificationCenter.default.removeObserver(willEnterForegroundObserver)
         }
     }
