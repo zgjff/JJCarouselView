@@ -104,7 +104,6 @@ extension JJCarouselView {
             guard let self = self else {
                 return
             }
-            self.timer?.fireDate = .distantFuture
             self.timer?.fireDate = Date().addingTimeInterval(self.config.loopTimeInterval)
         })
     }
