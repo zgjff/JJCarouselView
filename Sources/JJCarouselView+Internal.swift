@@ -95,6 +95,30 @@ extension JJCarouselView {
         }
     }
     
+    /// 添加观察者
+    internal func addObservers() {
+        didEnterBackgroundObserver = NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main, using: { [weak self] _ in
+            self?.pauseTimer()
+        })
+        willEnterForegroundObserver = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main, using: { [weak self] _ in
+            guard let self = self else {
+                return
+            }
+            self.timer?.fireDate = .distantFuture
+            self.timer?.fireDate = Date().addingTimeInterval(self.config.loopTimeInterval)
+        })
+    }
+    
+    /// 移除观察者
+    internal func removeObservers() {
+        if let didEnterBackgroundObserver = didEnterBackgroundObserver {
+            NotificationCenter.default.removeObserver(didEnterBackgroundObserver)
+        }
+        if let willEnterForegroundObserver = didEnterBackgroundObserver {
+            NotificationCenter.default.removeObserver(willEnterForegroundObserver)
+        }
+    }
+    
     /// 布局
     internal func layoutCells() {
         switch config.direction {

@@ -33,8 +33,10 @@ public final class JJCarouselDotPageView: UIView, JJCarouselViewPageable {
     
     public var currentPageIndicatorTintColor: UIColor? = UIColor.white
     
+    /// 圆点大小
     public var dotViewSize = CGSize(width: 6, height: 6)
     
+    /// 圆点间距
     public var dotSpace: CGFloat = 4
     
     public func size(forNumberOfPages pageCount: Int) -> CGSize {

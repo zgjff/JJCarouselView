@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// 轮播图组件
 public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView, UIScrollViewDelegate {
     /// 配置
     public var config = Config()
@@ -71,6 +72,7 @@ public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView, UISc
             self.scrollView.addSubview(obj.cell)
         }
         addSubview(pageView)
+        addObservers()
     }
     
     required init?(coder: NSCoder) {
@@ -98,6 +100,7 @@ public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView, UISc
     }
     
     deinit {
+        removeObservers()
         destoryTimer()
     }
     

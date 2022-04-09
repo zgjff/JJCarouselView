@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
   spec.name         = "JJCarouselView"
   spec.version      = @version
-  spec.summary      = "简单好用、易于扩展的轮播图框架."
+  spec.summary      = "Swift简单好用、易于扩展的轮播图框架."
   spec.description  = "适用于Swift的简单好用、易于扩展的轮播图框架."
   spec.homepage     = "https://github.com/zgjff/JJCarouselView"
   spec.license      = { :type => 'MIT', :file => 'LICENSE' }

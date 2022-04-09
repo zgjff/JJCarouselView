@@ -10,6 +10,7 @@ import UIKit
 /// 数字化轮播图page指示器。具体变现为:   1/6
 public final class JJCarouselNumberPageView: UIView, JJCarouselViewPageable {
     public var hidesForSinglePage: Bool = true
+    
     public var numberOfPages: Int = 0 {
         didSet {
             isHidden = (numberOfPages > 1) ? false : hidesForSinglePage
@@ -43,6 +44,7 @@ public final class JJCarouselNumberPageView: UIView, JJCarouselViewPageable {
         }
     }
     
+    /// 字体大小
     public var font = UIFont.systemFont(ofSize: 11) {
         didSet {
             dotLabel.font = font
@@ -91,6 +93,8 @@ public final class JJCarouselNumberPageView: UIView, JJCarouselViewPageable {
     
     private func setup() {
         dotLabel.text = "/"
+        currentLabel.text = " "
+        totalLabel.text = " "
         pageIndicatorTintColor = .white
         currentPageIndicatorTintColor = .white
         dotTintColor = .white
