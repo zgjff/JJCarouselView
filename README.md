@@ -1,11 +1,12 @@
 JJCarouselView
 =================
 
-![GitHub](https://img.shields.io/github/license/zgjff/JJCarouselView)
+[![GitHub](https://img.shields.io/github/license/zgjff/JJCarouselView)](https://www.apache.org/licenses/LICENSE-2.0.html)
 ![swift-5.6](https://img.shields.io/badge/swift-5.6-blue)
 ![iOS-11.0](https://img.shields.io/badge/iOS-11.0-red)
-![Cocoapods](https://img.shields.io/cocoapods/v/JJCarouselView)
-
+[![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/zgjff/JJCarouselView)](https://github.com/zgjff/JJCarouselView)
+[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
+[![Cocoapods](https://img.shields.io/cocoapods/v/JJCarouselView)](https://cocoapods.org/pods/JJCarouselView)
 
 适用于Swift的简单好用、易于扩展的轮播图框架
 
