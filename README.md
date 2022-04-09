@@ -4,6 +4,7 @@ JJCarouselView
 ![GitHub](https://img.shields.io/github/license/zgjff/JJCarouselView)
 ![swift-5.6](https://img.shields.io/badge/swift-5.6-blue)
 ![iOS-11.0](https://img.shields.io/badge/iOS-11.0-red)
+![Cocoapods](https://img.shields.io/cocoapods/v/JJCarouselView)
 
 
 适用于Swift的简单好用、易于扩展的轮播图框架
