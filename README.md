@@ -2,10 +2,10 @@ JJCarouselView
 =================
 
 [![GitHub](https://img.shields.io/github/license/zgjff/JJCarouselView)](https://www.apache.org/licenses/LICENSE-2.0.html)
-![swift-5.6](https://img.shields.io/badge/swift-5.6-blue)
+[![swift-5.0](https://img.shields.io/badge/swift-5.0-blue)](https://www.swift.org)
 ![iOS-11.0](https://img.shields.io/badge/iOS-11.0-red)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/zgjff/JJCarouselView)](https://github.com/zgjff/JJCarouselView)
-[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
+[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://www.swift.org/package-manager/)
 [![Cocoapods](https://img.shields.io/cocoapods/v/JJCarouselView)](https://cocoapods.org/pods/JJCarouselView)
 
 适用于Swift的简单好用、易于扩展的轮播图框架
@@ -50,9 +50,9 @@ cv.onTap = { obj, index in
 ```
 
 ### 2.2 展示数据
-> 本控件没指定将对应的数据源显示到容器的方法,所以需要你自己去实现。只要在初始化`JJCarouselView`之后,设置`config.display`即可。
+> 本控件没指定将对应的数据源显示到容器的方法,所以需要自己去实现。只要在初始化`JJCarouselView`之后,设置`config.display`即可。
 
-#### 2.2.1 以最简单的展示本地图片的轮播图为例:
+#### 2.2.1 以最基本的展示本地图片的轮播图为例:
 ```swift
 let carouselView: JJCarouselView<UIImageView, UIImage>
 cv.config.display = { cell, image in
@@ -75,7 +75,7 @@ cv.config.display = { cell, url in
 ```
 
 #### 2.2.3 展示任何你想轮播的内容
-可以使用任何`UIView`的子类来展示任意对象,只需设定轮播图类型的`Object`遵守`Equatable`协议即。
+可以使用任何`UIView`的子类来展示任意对象,只需设定轮播图类型的`Object`遵守`Equatable`协议即可。
 ```swift
 // 轮播Model,必须遵守Equatable协议
 struct WebCarouselModel {

@@ -24,7 +24,7 @@ public protocol JJCarouselViewPageable: UIView {
     /// 当前指示器颜色
     var currentPageIndicatorTintColor: UIColor? { get set }
     
-    /// 根据给定的数据数量返回对应控件大小
+    /// 根据给定的数据数量计算对应控件所需的size
     func size(forNumberOfPages pageCount: Int) -> CGSize
 }
 

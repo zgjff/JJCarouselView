@@ -7,6 +7,12 @@
 
 import UIKit
 
+/// 展示本地图片的轮播图控件, `JJCarouselView<UIImageView, UIImage>`的别名,方便使用
+public typealias JJLocalImageCarouselView = JJCarouselView<UIImageView, UIImage>
+
+/// 展示网络图片的轮播图控件, `JJCarouselView<UIImageView, URL>`的别名,方便使用
+public typealias JJWebImageCarouselView = JJCarouselView<UIImageView, URL>
+
 /// 轮播图组件
 public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView, UIScrollViewDelegate {
     /// 配置
