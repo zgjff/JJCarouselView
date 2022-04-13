@@ -1,4 +1,4 @@
-@version = "0.0.3"
+@version = "0.0.4"
 Pod::Spec.new do |spec|
   spec.name         = "JJCarouselView"
   spec.version      = @version
@@ -10,5 +10,5 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "11.0"
   spec.source       = { :git => "https://github.com/zgjff/JJCarouselView.git", :tag => "#{spec.version}" }
   spec.source_files = 'Sources/*.swift'
-  spec.swift_version = '5.6'
+  spec.swift_version = '5.0'
 end

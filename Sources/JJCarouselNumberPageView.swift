@@ -101,6 +101,9 @@ public final class JJCarouselNumberPageView: UIView, JJCarouselViewPageable {
         font = UIFont.systemFont(ofSize: 11)
         currentLabel.textAlignment = .right
         totalLabel.textAlignment = .left
+        dotLabel.sizeToFit()
+        currentLabel.sizeToFit()
+        totalLabel.sizeToFit()
         [currentLabel, dotLabel, totalLabel].forEach { self.addSubview($0) }
         clipsToBounds = true
         backgroundColor = UIColor.black.withAlphaComponent(0.4)

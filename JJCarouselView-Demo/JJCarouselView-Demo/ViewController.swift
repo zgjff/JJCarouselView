@@ -37,13 +37,17 @@ private extension ViewController {
             cell.contentMode = .scaleAspectFill
             cell.image = object
         }
+        carouselView.backgroundColor = .random()
+        carouselView.event.onTap = { obj, idx in
+            print(obj, idx)
+        }
         subviewsMaxY = carouselView.frame.maxY
         scrollView.addSubview(carouselView)
         carouselView.datas = (0..<6).map { UIImage(named: "a-\($0).jpeg")! }
     }
     
     func addLocalImageCarouselView2() {
-        let carouselView = JJLocalImageCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200), initialize: nil)
+        let carouselView: JJCarouselView<UIImageView, UIImage> = JJCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200), initialize: nil)
         carouselView.config.display = { cell, object in
             cell.contentMode = .scaleAspectFit
             cell.image = object
@@ -60,7 +64,7 @@ private extension ViewController {
     }
     
     func addWebImageCarouselView() {
-        let carouselView = JJWebImageCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200), initialize: nil)
+        let carouselView: JJCarouselView<UIImageView, URL> = JJCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200), initialize: nil)
         carouselView.config.display = { cell, object in
             cell.clipsToBounds = true
             cell.contentMode = .scaleAspectFill
@@ -81,7 +85,7 @@ private extension ViewController {
             cell.titleLabel.text = object.title
             cell.descLabel.text = object.desc
         }
-        carouselView.onTap = { [weak self] obj, _ in
+        carouselView.event.onTap = { [weak self] obj, _ in
             let sf = SFSafariViewController(url: obj.url)
             self?.present(sf, animated: true)
         }

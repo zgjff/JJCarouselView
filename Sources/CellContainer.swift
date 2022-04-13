@@ -9,7 +9,7 @@ import UIKit
 
 extension JJCarouselView {
     /// 轮播图cell+index的容器类
-    internal final class CellContainer {
+    final class CellContainer {
         var onTap: ((Int) -> ())?
         init(cell: Cell, index: Int) {
             cell.isUserInteractionEnabled = true

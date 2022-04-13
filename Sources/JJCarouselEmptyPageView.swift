@@ -1,6 +1,6 @@
 //
 //  JJCarouselEmptyPageView.swift
-//  JJCarouselView-Demo
+//  JJCarouselView
 //
 //  Created by 郑桂杰 on 2022/4/8.
 //

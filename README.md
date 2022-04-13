@@ -16,7 +16,7 @@ JJCarouselView
 ## 一、初始化
 因为本轮播图是泛型控件,所以在初始化的时候需要指定类型。
 ```swift
-let carouselView: JJCarouselView<UIImageView, UIImage> = JJCarouselView(frame: CGRect(x: 50, y: 0, width: 300, height: 200), initialize: nil)
+let carouselView: JJCarouselView<UIImageView, UIImage> = JJCarouselView(frame: CGRect(x: 50, y: 0, width: 300, height: 200), initialize: nil, style: .full)
 ```
 
 ## 二、使用方法
