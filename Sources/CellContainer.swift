@@ -10,7 +10,7 @@ import UIKit
 extension JJCarouselView {
     /// 轮播图cell+index的容器类
     final class CellContainer {
-        var onTap: ((Int) -> ())?
+        var onTap: ((Cell, Int) -> ())?
         init(cell: Cell, index: Int) {
             cell.isUserInteractionEnabled = true
             self.cell = cell
@@ -21,7 +21,7 @@ extension JJCarouselView {
         var index = 0
         
         @IBAction private func onClickCell() {
-            onTap?(index)
+            onTap?(cell, index)
         }
     }
 }

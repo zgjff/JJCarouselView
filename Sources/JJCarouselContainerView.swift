@@ -22,7 +22,7 @@ protocol JJCarouselContainerViewDelegate: NSObjectProtocol {
     /// 展示轮播图数据
     func displayCell(_ cell: UIView, atIndex index: Int)
     /// 点击具体的cell容器
-    func onClickCell(at index: Int)
+    func onClickCell(_ cell: UIView, atIndex index: Int)
     /// 滑动到index位置
     func onScroll(to index: Int)
     /// 开始手动拖动scrollView

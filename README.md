@@ -44,7 +44,7 @@ cv.config.contentInset = .zero
 
 点击事件
 ```swift
-cv.onTap = { obj, index in
+cv.onTap = { view, obj, index in
     ...
 }
 ```

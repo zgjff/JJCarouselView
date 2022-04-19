@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let wsc = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: wsc)
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = ViewController()
+        window?.rootViewController = TabBarViewController()
         window?.makeKeyAndVisible()
     }
 }

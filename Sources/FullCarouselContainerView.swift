@@ -30,8 +30,8 @@ extension JJCarouselView {
             addSubview(scrollView)
             [firstContainer, secondContainer, thirdContainer].forEach { [unowned self] obj in
                 obj.cell.isHidden = true
-                obj.onTap = { [weak self] idx in
-                    self?.delegate?.onClickCell(at: idx)
+                obj.onTap = { [weak self] cell, idx in
+                    self?.delegate?.onClickCell(cell, atIndex: idx)
                 }
                 self.scrollView.addSubview(obj.cell)
             }
@@ -68,30 +68,7 @@ extension JJCarouselView {
         // MARK: - UIScrollViewDelegate
         
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            let dataCount = dataSource?.numberOfDatas() ?? 0
-            let offset = scrollView.contentOffset
-            if (offset == preScrollcontentOffset) || (dataCount == 0) {
-                return
-            }
-            switch (dataSource?.isHorizontalScroll() ?? true) {
-            case true:
-                if offset.x == 0 {
-                    currentIndex = (currentIndex - 1 + dataCount) % dataCount
-                    scrollView.contentOffset = CGPoint(x: bounds.width, y: 0)
-                } else if offset.x == bounds.width * 2 {
-                    currentIndex = (currentIndex + 1) % dataCount
-                    scrollView.contentOffset = CGPoint(x: bounds.width, y: 0)
-                }
-            case false:
-                if offset.y == 0 {
-                    currentIndex = (currentIndex - 1 + dataCount) % dataCount
-                    scrollView.contentOffset = CGPoint(x: 0, y: bounds.height)
-                } else if offset.y == bounds.height * 2 {
-                    currentIndex = (currentIndex + 1) % dataCount
-                    scrollView.contentOffset = CGPoint(x: 0, y: bounds.height)
-                }
-            }
-            preScrollcontentOffset = offset
+            
         }
         
         func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -99,7 +76,11 @@ extension JJCarouselView {
         }
         
         func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-            delegate?.scrollViewDidEndDecelerating()
+            adjustWhenEndScrolling(animation: false)
+        }
+        
+        func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+            adjustWhenEndScrolling(animation: true)
         }
         
         func reload() {
@@ -201,6 +182,35 @@ private extension JJCarouselView.FullContainerView {
             let nextIndex = (currentIndex + 1) % dataCount
             thirdContainer.index = nextIndex
             delegate?.displayCell(thirdContainer.cell, atIndex: nextIndex)
+        }
+    }
+    
+    func adjustWhenEndScrolling(animation: Bool) {
+        let dataCount = dataSource?.numberOfDatas() ?? 0
+        if dataCount == 0 {
+            return
+        }
+        if !animation {
+            delegate?.scrollViewDidEndDecelerating()
+        }
+        let offset = scrollView.contentOffset
+        switch (dataSource?.isHorizontalScroll() ?? true) {
+        case true:
+            if offset.x == 0 {
+                currentIndex = (currentIndex - 1 + dataCount) % dataCount
+                scrollView.contentOffset = CGPoint(x: bounds.width, y: 0)
+            } else if offset.x == bounds.width * 2 {
+                currentIndex = (currentIndex + 1) % dataCount
+                scrollView.contentOffset = CGPoint(x: bounds.width, y: 0)
+            }
+        case false:
+            if offset.y == 0 {
+                currentIndex = (currentIndex - 1 + dataCount) % dataCount
+                scrollView.contentOffset = CGPoint(x: 0, y: bounds.height)
+            } else if offset.y == bounds.height * 2 {
+                currentIndex = (currentIndex + 1) % dataCount
+                scrollView.contentOffset = CGPoint(x: 0, y: bounds.height)
+            }
         }
     }
 }

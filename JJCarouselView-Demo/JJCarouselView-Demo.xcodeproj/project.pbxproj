@@ -34,6 +34,7 @@
 		5E874BDF2806953C0046F4DC /* FullCarouselContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E874BDE2806953C0046F4DC /* FullCarouselContainerView.swift */; };
 		5E874BE12806A6710046F4DC /* JJCarouselContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E874BE02806A6710046F4DC /* JJCarouselContainerView.swift */; };
 		5E874BE32806AEEB0046F4DC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E874BE22806AEEB0046F4DC /* Style.swift */; };
+		5EF487CC280E40180093B98E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF487CB280E40180093B98E /* TabBarViewController.swift */; };
 		C233C6BCA5368CE57955AA1C /* Pods_JJCarouselView_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1ACA3563D2902F00B45369A /* Pods_JJCarouselView_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		5E874BDE2806953C0046F4DC /* FullCarouselContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCarouselContainerView.swift; sourceTree = "<group>"; };
 		5E874BE02806A6710046F4DC /* JJCarouselContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCarouselContainerView.swift; sourceTree = "<group>"; };
 		5E874BE22806AEEB0046F4DC /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		5EF487CB280E40180093B98E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C1ACA3563D2902F00B45369A /* Pods_JJCarouselView_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJCarouselView_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E700E886F9A495C3B7BB4D33 /* Pods-JJCarouselView-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJCarouselView-Demo.debug.xcconfig"; path = "Target Support Files/Pods-JJCarouselView-Demo/Pods-JJCarouselView-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 				5E0344872800109700CB9C82 /* Images */,
 				5E03445C2800037900CB9C82 /* AppDelegate.swift */,
 				5E03445E2800037900CB9C82 /* SceneDelegate.swift */,
+				5EF487CB280E40180093B98E /* TabBarViewController.swift */,
 				5E0344602800037900CB9C82 /* ViewController.swift */,
 				5E03449628001C6800CB9C82 /* WebCarouselView.swift */,
 				5E03449428001C3800CB9C82 /* WebCarouselModel.swift */,
@@ -297,6 +300,7 @@
 				5E0344612800037900CB9C82 /* ViewController.swift in Sources */,
 				5E03445D2800037900CB9C82 /* AppDelegate.swift in Sources */,
 				5E874BDF2806953C0046F4DC /* FullCarouselContainerView.swift in Sources */,
+				5EF487CC280E40180093B98E /* TabBarViewController.swift in Sources */,
 				5E2F818528041939008A511C /* Event.swift in Sources */,
 				5E03447C280004F000CB9C82 /* JJCarouselDotPageView.swift in Sources */,
 				5E0344802800086300CB9C82 /* JJCarouselEmptyPageView.swift in Sources */,

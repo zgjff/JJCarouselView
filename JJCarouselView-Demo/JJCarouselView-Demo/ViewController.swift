@@ -17,9 +17,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setup()
         addLocalImageCarouselView1()
-        addLocalImageCarouselView2()
-        addWebImageCarouselView()
-        addCustomCarouselView()
+//        addLocalImageCarouselView2()
+//        addWebImageCarouselView()
+//        addCustomCarouselView()
         scrollView.contentSize = CGSize(width: view.bounds.width, height: subviewsMaxY + 20)
     }
 }
@@ -38,7 +38,7 @@ private extension ViewController {
             cell.image = object
         }
         carouselView.backgroundColor = .random()
-        carouselView.event.onTap = { obj, idx in
+        carouselView.event.onTap = { _, obj, idx in
             print(obj, idx)
         }
         subviewsMaxY = carouselView.frame.maxY
@@ -85,7 +85,7 @@ private extension ViewController {
             cell.titleLabel.text = object.title
             cell.descLabel.text = object.desc
         }
-        carouselView.event.onTap = { [weak self] obj, _ in
+        carouselView.event.onTap = { [weak self] _, obj, _ in
             let sf = SFSafariViewController(url: obj.url)
             self?.present(sf, animated: true)
         }

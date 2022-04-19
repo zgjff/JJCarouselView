@@ -71,6 +71,15 @@ public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView {
         destoryTimer()
     }
     
+    public override func willMove(toWindow newWindow: UIWindow?) {
+        super.willMove(toWindow: newWindow)
+        if newWindow == nil {
+            scrollViewWillBeginDragging()
+        } else {
+            scrollViewDidEndDecelerating()
+        }
+    }
+    
     public override func layoutSubviews() {
         super.layoutSubviews()
         currentFrame = bounds
@@ -104,8 +113,10 @@ extension JJCarouselView: JJCarouselContainerViewDataSource, JJCarouselContainer
         }
     }
     
-    func onClickCell(at index: Int) {
-        event.onTap?(datas[index], index)
+    func onClickCell(_ cell: UIView, atIndex index: Int) {
+        if let cell = cell as? Cell {
+            event.onTap?(cell, datas[index], index)
+        }
     }
     
     func onScroll(to index: Int) {
@@ -114,13 +125,15 @@ extension JJCarouselView: JJCarouselContainerViewDataSource, JJCarouselContainer
     
     func scrollViewWillBeginDragging() {
         if config.autoLoop {
-            pauseTimer()
             NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(resumeTimer), object: nil)
+            pauseTimer()
         }
     }
     
     func scrollViewDidEndDecelerating() {
         if config.autoLoop {
+            /// 先取消,再重启....防止多次重启
+            NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(resumeTimer), object: nil)
             perform(#selector(resumeTimer), with: nil, afterDelay: config.loopTimeInterval)
         }
     }
@@ -165,13 +178,15 @@ private extension JJCarouselView {
 private extension JJCarouselView {
     func addObservers() {
         didEnterBackgroundObserver = NotificationCenter.default.addObserver(forName: UIApplication.didEnterBackgroundNotification, object: nil, queue: .main, using: { [weak self] _ in
-            self?.pauseTimer()
+            self?.scrollViewWillBeginDragging()
         })
         willEnterForegroundObserver = NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: .main, using: { [weak self] _ in
             guard let self = self else {
                 return
             }
-            self.timer?.fireDate = Date().addingTimeInterval(self.config.loopTimeInterval)
+            if self.config.autoLoop && (self.window != nil) {
+                self.timer?.fireDate = Date().addingTimeInterval(self.config.loopTimeInterval)
+            }
         })
     }
     
