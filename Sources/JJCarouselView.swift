@@ -32,12 +32,6 @@ public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView {
         }
     }
     
-    private var currentFrame = CGRect.zero {
-        didSet {
-            onChangeFrame(old: oldValue, new: currentFrame)
-        }
-    }
-    
     /// 初始化
     /// - Parameters:
     ///   - frame: frame
@@ -45,6 +39,16 @@ public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView {
     ///   - style: 轮播图风格,默认`full`平铺风格
     public init(frame: CGRect, initialize: (() -> Cell)?, style: Style = .full) {
         containerView = style.createContainerView(frame: frame, initialize: initialize)
+        super.init(frame: frame)
+        containerView.dataSource = self
+        containerView.delegate = self
+        addSubview(containerView)
+        addSubview(pageView)
+        addObservers()
+    }
+    
+    public override init(frame: CGRect) {
+        containerView = Style.full.createContainerView(frame: .zero, initialize: nil)
         super.init(frame: frame)
         containerView.dataSource = self
         containerView.delegate = self
@@ -82,7 +86,8 @@ public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView {
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-        currentFrame = bounds
+        containerView.frame = bounds
+        pageView.frame = config.pageViewFrame(pageView, config.direction, bounds.size, datas.count)
     }
     
     // MARK: - 私有方法
@@ -142,7 +147,6 @@ extension JJCarouselView: JJCarouselContainerViewDataSource, JJCarouselContainer
 // MARK: - private
 private extension JJCarouselView {
     func onGetDatas(old: [Object], new: [Object]) {
-        pageView.numberOfPages = new.count
         if old.count != new.count {
             onGetDifferentDatas()
             return
@@ -157,20 +161,16 @@ private extension JJCarouselView {
     }
     
     func onGetDifferentDatas() {
+        pageView.numberOfPages = datas.count
+        if !bounds.isEmpty {
+            pageView.frame = config.pageViewFrame(pageView, config.direction, bounds.size, datas.count)
+        }
         containerView.reload()
         if datas.count > 1 {
             createTimer()
         } else {
             destoryTimer()
         }
-    }
-    
-    func onChangeFrame(old: CGRect, new: CGRect) {
-        if old == new {
-            return
-        }
-        containerView.frame = bounds
-        pageView.frame = config.pageViewFrame(pageView, config.direction, bounds.size, datas.count)
     }
 }
 

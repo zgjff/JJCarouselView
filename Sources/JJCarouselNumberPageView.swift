@@ -26,7 +26,7 @@ public final class JJCarouselNumberPageView: UIView, JJCarouselViewPageable {
         }
     }
     
-    public var pageIndicatorTintColor: UIColor? {
+    public var pageIndicatorTintColor: UIColor? = .white {
         didSet {
             totalLabel.textColor = pageIndicatorTintColor
         }
@@ -38,7 +38,7 @@ public final class JJCarouselNumberPageView: UIView, JJCarouselViewPageable {
         }
     }
     
-    public var currentPageIndicatorTintColor: UIColor? {
+    public var currentPageIndicatorTintColor: UIColor? = .white {
         didSet {
             currentLabel.textColor = currentPageIndicatorTintColor
         }
