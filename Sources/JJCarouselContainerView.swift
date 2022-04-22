@@ -23,8 +23,12 @@ protocol JJCarouselContainerViewDelegate: NSObjectProtocol {
     func displayCell(_ cell: UIView, atIndex index: Int)
     /// 点击具体的cell容器
     func onClickCell(_ cell: UIView, atIndex index: Int)
+    /// 将要到index位置
+    func willScroll(to index: Int)
+    /// 滑动
+    func onScroll(from fromIndex: Int, to toIndex: Int, progress: Float)
     /// 滑动到index位置
-    func onScroll(to index: Int)
+    func didScroll(to index: Int)
     /// 开始手动拖动scrollView
     func scrollViewWillBeginDragging()
     /// scrollView停止滑动

@@ -39,8 +39,24 @@ public final class JJCarouselDotPageView: UIView, JJCarouselViewPageable {
     /// 圆点间距
     public var dotSpace: CGFloat = 4
     
+    /// 轮播图滑动时,是否使用过渡混合色。默认`true`
+    public var usingTransitionColorWhileScroll = true
+    
     public func size(forNumberOfPages pageCount: Int) -> CGSize {
         return sizeThatFits(.zero)
+    }
+    
+    public func onScroll(from fromIndex: Int, to toindex: Int, progress: Float) {
+        if !usingTransitionColorWhileScroll {
+            
+            return
+        }
+        let currentColor = currentPageIndicatorTintColor ?? .clear
+        let pageColor = pageIndicatorTintColor ?? .clear
+        let fc = currentColor.mix(secondColor: pageColor, secondColorRatio: progress)
+        dotLayers[fromIndex].backgroundColor = fc.cgColor
+        let tc = pageColor.mix(secondColor: currentColor, secondColorRatio: progress)
+        dotLayers[toindex].backgroundColor = tc.cgColor
     }
     
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -48,7 +64,7 @@ public final class JJCarouselDotPageView: UIView, JJCarouselViewPageable {
             return dotViewSize
         }
         let w = (dotViewSize.width + dotSpace) * CGFloat(numberOfPages) - dotSpace
-        return CGSize(width: w, height: dotViewSize.height + 8)
+        return CGSize(width: w, height: dotViewSize.height)
     }
     
     public override func layoutSubviews() {

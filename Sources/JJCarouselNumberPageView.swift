@@ -74,6 +74,8 @@ public final class JJCarouselNumberPageView: UIView, JJCarouselViewPageable {
         return sizeThatFits(.zero)
     }
     
+    public func onScroll(from fromIndex: Int, to toindex: Int, progress: Float) { }
+    
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
         let w = dotLabel.bounds.width + totalLabel.bounds.width * 2
         let h = max(currentLabel.bounds.height, totalLabel.bounds.width)

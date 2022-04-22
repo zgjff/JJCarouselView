@@ -124,8 +124,18 @@ extension JJCarouselView: JJCarouselContainerViewDataSource, JJCarouselContainer
         }
     }
     
-    func onScroll(to index: Int) {
+    func willScroll(to index: Int) {
+        event.willMove?(index)
+    }
+    
+    func onScroll(from fromIndex: Int, to toIndex: Int, progress: Float) {
+        event.onScroll?(fromIndex, toIndex, progress)
+        pageView.onScroll(from: fromIndex, to: toIndex, progress: progress)
+    }
+    
+    func didScroll(to index: Int) {
         pageView.currentPage = index
+        event.didMove?(index)
     }
     
     func scrollViewWillBeginDragging() {

@@ -37,9 +37,19 @@ private extension ViewController {
             cell.contentMode = .scaleAspectFill
             cell.image = object
         }
+//        carouselView.config.autoLoop = false
         carouselView.backgroundColor = .random()
         carouselView.event.onTap = { _, obj, idx in
             print(obj, idx)
+        }
+        carouselView.event.willMove = { idx in
+            print("willMove----", idx)
+        }
+        carouselView.event.didMove = { idx in
+            print("didMove----", idx)
+        }
+        carouselView.event.onScroll = { fromIndex, toIndex, progress in 
+            print("onScroll----", fromIndex, toIndex, progress)
         }
         subviewsMaxY = carouselView.frame.maxY
         scrollView.addSubview(carouselView)
@@ -47,7 +57,7 @@ private extension ViewController {
     }
     
     func addLocalImageCarouselView2() {
-        let carouselView: JJCarouselView<UIImageView, UIImage> = JJCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200), initialize: nil)
+        let carouselView: JJCarouselView<UIImageView, UIImage> = JJCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200))
         carouselView.config.display = { cell, object in
             cell.contentMode = .scaleAspectFit
             cell.image = object
@@ -64,7 +74,7 @@ private extension ViewController {
     }
     
     func addWebImageCarouselView() {
-        let carouselView: JJCarouselView<UIImageView, URL> = JJCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200), initialize: nil)
+        let carouselView: JJCarouselView<UIImageView, URL> = JJCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200))
         carouselView.config.display = { cell, object in
             cell.clipsToBounds = true
             cell.contentMode = .scaleAspectFill
@@ -80,7 +90,7 @@ private extension ViewController {
     }
     
     func addCustomCarouselView() {
-        let carouselView: JJCarouselView<WebCarouselView, WebCarouselModel> = JJCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 150), initialize: nil)
+        let carouselView: JJCarouselView<WebCarouselView, WebCarouselModel> = JJCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 150))
         carouselView.config.display = { cell, object in
             cell.titleLabel.text = object.title
             cell.descLabel.text = object.desc

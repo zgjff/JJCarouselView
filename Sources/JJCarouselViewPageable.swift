@@ -26,6 +26,15 @@ public protocol JJCarouselViewPageable: UIView {
     
     /// 根据给定的数据数量计算对应控件所需的size
     func size(forNumberOfPages pageCount: Int) -> CGSize
+    
+    /// 轮播图滑动回调
+    /// - Parameters:
+    ///   - fromIndex: 当前index
+    ///   - toindex: 目标index
+    ///   - progress: 进度
+    func onScroll(from fromIndex: Int, to toindex: Int, progress: Float)
 }
 
-extension UIPageControl: JJCarouselViewPageable {}
+extension UIPageControl: JJCarouselViewPageable {
+    public func onScroll(from fromIndex: Int, to toindex: Int, progress: Float) {}
+}

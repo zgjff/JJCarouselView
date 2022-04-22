@@ -48,7 +48,6 @@ extension JJCarouselView {
         private let thirdContainer: CellContainer
         
         // MARK: - 属性
-        private var preScrollcontentOffset = CGPoint.zero
         private var currentFrame = CGRect.zero {
             didSet {
                 onChangeFrame(old: oldValue, new: currentFrame)
@@ -60,6 +59,14 @@ extension JJCarouselView {
             }
         }
         
+        private var willScrollIndex = -1 {
+            didSet {
+                if (willScrollIndex != oldValue) && (willScrollIndex != -1) {
+                    delegate?.willScroll(to: willScrollIndex)
+                }
+            }
+        }
+        
         override func layoutSubviews() {
             super.layoutSubviews()
             currentFrame = bounds
@@ -68,7 +75,38 @@ extension JJCarouselView {
         // MARK: - UIScrollViewDelegate
         
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            
+            let dataCount = dataSource?.numberOfDatas() ?? 0
+            if (bounds.width == 0) || (bounds.height == 0) || (dataCount == 0) {
+                return
+            }
+            switch (dataSource?.isHorizontalScroll() ?? true) {
+            case true:
+                let offsetX = scrollView.contentOffset.x
+                if (bounds.width < offsetX) && (offsetX < bounds.width * 2) {
+                    let nextIndex = (currentIndex + 1) % dataCount
+                    willScrollIndex = nextIndex
+                    let progress = (offsetX - bounds.width) / bounds.width
+                    delegate?.onScroll(from: currentIndex, to: nextIndex, progress: Float(progress))
+                } else if (0 < offsetX) && (offsetX < bounds.width) {
+                    let preIndex = (currentIndex - 1 + dataCount) % dataCount
+                    willScrollIndex = preIndex
+                    let progress = (bounds.width - offsetX) / bounds.width
+                    delegate?.onScroll(from: currentIndex, to: preIndex, progress: Float(progress))
+                }
+            case false:
+                let offsetY = scrollView.contentOffset.y
+                if (bounds.height < offsetY) && (offsetY < bounds.height * 2) {
+                    let nextIndex = (currentIndex + 1) % dataCount
+                    willScrollIndex = nextIndex
+                    let progress = (offsetY - bounds.height) / bounds.height
+                    delegate?.onScroll(from: currentIndex, to: nextIndex, progress: Float(progress))
+                } else if (0 < offsetY) && (offsetY < bounds.height) {
+                    let preIndex = (currentIndex - 1 + dataCount) % dataCount
+                    willScrollIndex = preIndex
+                    let progress = (bounds.height - offsetY) / bounds.height
+                    delegate?.onScroll(from: currentIndex, to: preIndex, progress: Float(progress))
+                }
+            }
         }
         
         func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -112,7 +150,6 @@ private extension JJCarouselView.FullContainerView {
             scrollView.contentSize = CGSize(width: bounds.width, height: bounds.height * 3)
             scrollView.contentOffset = CGPoint(x: 0, y: bounds.height)
         }
-        preScrollcontentOffset = scrollView.contentOffset
     }
     
     func layoutCells() {
@@ -161,12 +198,13 @@ private extension JJCarouselView.FullContainerView {
                 scrollView.contentOffset = CGPoint(x: 0, y: bounds.height)
             }
         }
+        delegate?.willScroll(to: 0)
         currentIndex = 0
     }
     
     func onChangeCurrentIndex() {
         let dataCount = dataSource?.numberOfDatas() ?? 0
-        delegate?.onScroll(to: currentIndex)
+        delegate?.didScroll(to: currentIndex)
         switch dataCount {
         case 0:
             return
@@ -194,23 +232,28 @@ private extension JJCarouselView.FullContainerView {
             delegate?.scrollViewDidEndDecelerating()
         }
         let offset = scrollView.contentOffset
+        let storeCurrentIndex = currentIndex
+        var nextIndex = currentIndex
         switch (dataSource?.isHorizontalScroll() ?? true) {
         case true:
             if offset.x == 0 {
-                currentIndex = (currentIndex - 1 + dataCount) % dataCount
+                nextIndex = (currentIndex - 1 + dataCount) % dataCount
                 scrollView.contentOffset = CGPoint(x: bounds.width, y: 0)
             } else if offset.x == bounds.width * 2 {
-                currentIndex = (currentIndex + 1) % dataCount
+                nextIndex = (currentIndex + 1) % dataCount
                 scrollView.contentOffset = CGPoint(x: bounds.width, y: 0)
             }
         case false:
             if offset.y == 0 {
-                currentIndex = (currentIndex - 1 + dataCount) % dataCount
+                nextIndex = (currentIndex - 1 + dataCount) % dataCount
                 scrollView.contentOffset = CGPoint(x: 0, y: bounds.height)
             } else if offset.y == bounds.height * 2 {
-                currentIndex = (currentIndex + 1) % dataCount
+                nextIndex = (currentIndex + 1) % dataCount
                 scrollView.contentOffset = CGPoint(x: 0, y: bounds.height)
             }
         }
+        delegate?.onScroll(from: storeCurrentIndex, to: nextIndex, progress: 1.0)
+        willScrollIndex = -1
+        currentIndex = nextIndex
     }
 }

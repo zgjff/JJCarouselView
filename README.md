@@ -42,12 +42,6 @@ cv.config.loopTimeInterval = 5
 cv.config.contentInset = .zero
 ```
 
-点击事件
-```swift
-cv.onTap = { view, obj, index in
-    ...
-}
-```
 
 ### 2.2 展示数据
 > 本控件没指定将对应的数据源显示到容器的方法,所以需要自己去实现。只要在初始化`JJCarouselView`之后,设置`config.display`即可。
@@ -114,9 +108,9 @@ cv.datas = [
 ```swift
 cv.pageView = JJCarouselNumberPageView()
 ```
-隐藏指示器,只需要将`pageView`设置成`JJCarouselEmptyPageView`。
+隐藏指示器,只需要将`pageView`设置成`JJCarouselHiddenPageView`。
 ```swift
-cv.pageView = JJCarouselEmptyPageView()
+cv.pageView = JJCarouselHiddenPageView()
 ```
 当然你也可以自定义专属于你的指示器
 ```swift
@@ -141,6 +135,39 @@ cv.config.pageViewFrame = { pageView, _, carouselViewSize, totalDataCount in
 // 固定大小
 cv.config.pageViewFrame = { _, _, carouselViewSize, _ in
     return CGRect(x: carouselViewSize.width - 55, y: carouselViewSize.height - 30, width: 45, height: 20)
+}
+```
+
+### 2.4 事件回调
+
+点击事件
+```swift
+cv.onTap = { view, obj, index in
+    ...
+}
+```
+点击事件
+```swift
+cv.onTap = { view, obj, index in
+    ...
+}
+```
+准备滑动到具体的index
+```swift
+cv.event.willMove = { idx in
+    ...
+}
+```
+已经滑动到具体的index
+```swift
+cv.event.didMove = { idx in
+    ...
+}
+```
+滑动回调(当前index, 目标index, 进度)
+```swift
+cv.event.onScroll = { fromIndex, toIndex, progress in 
+    ...
 }
 ```
 
