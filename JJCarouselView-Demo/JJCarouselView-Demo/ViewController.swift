@@ -57,7 +57,9 @@ private extension ViewController {
     }
     
     func addLocalImageCarouselView2() {
-        let carouselView: JJCarouselView<UIImageView, UIImage> = JJCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200))
+        let carouselView: JJCarouselView<UIImageView, UIImage> = JJCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200)) {
+            return UIImageView()
+        }
         carouselView.config.display = { cell, object in
             cell.contentMode = .scaleAspectFit
             cell.image = object

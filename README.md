@@ -16,7 +16,11 @@ JJCarouselView
 ## 一、初始化
 因为本轮播图是泛型控件,所以在初始化的时候需要指定类型。
 ```swift
-let carouselView: JJCarouselView<UIImageView, UIImage> = JJCarouselView(frame: CGRect(x: 50, y: 0, width: 300, height: 200), initialize: nil, style: .full)
+let carouselView: JJCarouselView<UIImageView, UIImage> = JJCarouselView(frame: CGRect.zero)
+
+let carouselView: JJCarouselView<UIImageView, UIImage> = JJCarouselView(frame: CGRect.zero) {
+    return UIImageView()
+}
 ```
 
 ## 二、使用方法
@@ -146,11 +150,6 @@ cv.onTap = { view, obj, index in
     ...
 }
 ```
-点击事件
-```swift
-cv.onTap = { view, obj, index in
-    ...
-}
 ```
 准备滑动到具体的index
 ```swift
