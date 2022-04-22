@@ -146,10 +146,9 @@ cv.config.pageViewFrame = { _, _, carouselViewSize, _ in
 
 点击事件
 ```swift
-cv.onTap = { view, obj, index in
+cv.event.onTap = { view, obj, index in
     ...
 }
-```
 ```
 准备滑动到具体的index
 ```swift
