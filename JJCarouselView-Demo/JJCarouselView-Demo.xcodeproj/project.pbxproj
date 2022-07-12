@@ -16,9 +16,6 @@
 		5E0344762800047B00CB9C82 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0344752800047B00CB9C82 /* Config.swift */; };
 		5E0344782800049D00CB9C82 /* CellContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0344772800049D00CB9C82 /* CellContainer.swift */; };
 		5E03447A280004BC00CB9C82 /* JJCarouselViewPageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E034479280004BB00CB9C82 /* JJCarouselViewPageable.swift */; };
-		5E03447C280004F000CB9C82 /* JJCarouselDotPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03447B280004F000CB9C82 /* JJCarouselDotPageView.swift */; };
-		5E03447E2800051800CB9C82 /* JJCarouselNumberPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03447D2800051800CB9C82 /* JJCarouselNumberPageView.swift */; };
-		5E0344802800086300CB9C82 /* JJCarouselHiddenPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03447F2800086300CB9C82 /* JJCarouselHiddenPageView.swift */; };
 		5E03448428000EEA00CB9C82 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 5E03448128000EEA00CB9C82 /* LICENSE */; };
 		5E03448628000EEA00CB9C82 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5E03448328000EEA00CB9C82 /* README.md */; };
 		5E03448E2800109700CB9C82 /* a-5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5E0344882800109700CB9C82 /* a-5.jpeg */; };
@@ -31,7 +28,12 @@
 		5E03449728001C6800CB9C82 /* WebCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03449628001C6800CB9C82 /* WebCarouselView.swift */; };
 		5E2F818528041939008A511C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2F818428041939008A511C /* Event.swift */; };
 		5E34ACC628114BE3003EB1E4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E34ACC528114BE3003EB1E4 /* UIColor+Extension.swift */; };
-		5E874BDF2806953C0046F4DC /* FullCarouselContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E874BDE2806953C0046F4DC /* FullCarouselContainerView.swift */; };
+		5E3B8972287D190700048C25 /* JJCarousel+namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3B8971287D190700048C25 /* JJCarousel+namespace.swift */; };
+		5E3B8974287D198700048C25 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3B8973287D198700048C25 /* Direction.swift */; };
+		5E3B897A287D50BF00048C25 /* JJCarouselHiddenPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3B8976287D50BF00048C25 /* JJCarouselHiddenPageView.swift */; };
+		5E3B897B287D50BF00048C25 /* JJCarouselDotPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3B8977287D50BF00048C25 /* JJCarouselDotPageView.swift */; };
+		5E3B897C287D50BF00048C25 /* FullCarouselContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3B8978287D50BF00048C25 /* FullCarouselContainerView.swift */; };
+		5E3B897D287D50BF00048C25 /* JJCarouselNumberPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3B8979287D50BF00048C25 /* JJCarouselNumberPageView.swift */; };
 		5E874BE12806A6710046F4DC /* JJCarouselContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E874BE02806A6710046F4DC /* JJCarouselContainerView.swift */; };
 		5E874BE32806AEEB0046F4DC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E874BE22806AEEB0046F4DC /* Style.swift */; };
 		5EF487CC280E40180093B98E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF487CB280E40180093B98E /* TabBarViewController.swift */; };
@@ -51,9 +53,6 @@
 		5E0344752800047B00CB9C82 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		5E0344772800049D00CB9C82 /* CellContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellContainer.swift; sourceTree = "<group>"; };
 		5E034479280004BB00CB9C82 /* JJCarouselViewPageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCarouselViewPageable.swift; sourceTree = "<group>"; };
-		5E03447B280004F000CB9C82 /* JJCarouselDotPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCarouselDotPageView.swift; sourceTree = "<group>"; };
-		5E03447D2800051800CB9C82 /* JJCarouselNumberPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCarouselNumberPageView.swift; sourceTree = "<group>"; };
-		5E03447F2800086300CB9C82 /* JJCarouselHiddenPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCarouselHiddenPageView.swift; sourceTree = "<group>"; };
 		5E03448128000EEA00CB9C82 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		5E03448328000EEA00CB9C82 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5E0344882800109700CB9C82 /* a-5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "a-5.jpeg"; sourceTree = "<group>"; };
@@ -66,7 +65,12 @@
 		5E03449628001C6800CB9C82 /* WebCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebCarouselView.swift; sourceTree = "<group>"; };
 		5E2F818428041939008A511C /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		5E34ACC528114BE3003EB1E4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		5E874BDE2806953C0046F4DC /* FullCarouselContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCarouselContainerView.swift; sourceTree = "<group>"; };
+		5E3B8971287D190700048C25 /* JJCarousel+namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JJCarousel+namespace.swift"; sourceTree = "<group>"; };
+		5E3B8973287D198700048C25 /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		5E3B8976287D50BF00048C25 /* JJCarouselHiddenPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JJCarouselHiddenPageView.swift; sourceTree = "<group>"; };
+		5E3B8977287D50BF00048C25 /* JJCarouselDotPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JJCarouselDotPageView.swift; sourceTree = "<group>"; };
+		5E3B8978287D50BF00048C25 /* FullCarouselContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullCarouselContainerView.swift; sourceTree = "<group>"; };
+		5E3B8979287D50BF00048C25 /* JJCarouselNumberPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JJCarouselNumberPageView.swift; sourceTree = "<group>"; };
 		5E874BE02806A6710046F4DC /* JJCarouselContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCarouselContainerView.swift; sourceTree = "<group>"; };
 		5E874BE22806AEEB0046F4DC /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		5EF487CB280E40180093B98E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -127,18 +131,17 @@
 		5E0344702800040800CB9C82 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5E3B8971287D190700048C25 /* JJCarousel+namespace.swift */,
 				5E0344712800042E00CB9C82 /* JJCarouselView.swift */,
 				5E874BE22806AEEB0046F4DC /* Style.swift */,
+				5E3B8973287D198700048C25 /* Direction.swift */,
 				5E0344752800047B00CB9C82 /* Config.swift */,
 				5E2F818428041939008A511C /* Event.swift */,
 				5E874BE02806A6710046F4DC /* JJCarouselContainerView.swift */,
-				5E874BDE2806953C0046F4DC /* FullCarouselContainerView.swift */,
-				5E0344772800049D00CB9C82 /* CellContainer.swift */,
 				5E034479280004BB00CB9C82 /* JJCarouselViewPageable.swift */,
-				5E03447F2800086300CB9C82 /* JJCarouselHiddenPageView.swift */,
-				5E03447B280004F000CB9C82 /* JJCarouselDotPageView.swift */,
-				5E03447D2800051800CB9C82 /* JJCarouselNumberPageView.swift */,
+				5E0344772800049D00CB9C82 /* CellContainer.swift */,
 				5E34ACC528114BE3003EB1E4 /* UIColor+Extension.swift */,
+				5E3B8975287D50BF00048C25 /* Providers */,
 			);
 			name = Sources;
 			path = ../Sources;
@@ -155,6 +158,17 @@
 				5E03448D2800109700CB9C82 /* a-0.jpeg */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		5E3B8975287D50BF00048C25 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				5E3B8978287D50BF00048C25 /* FullCarouselContainerView.swift */,
+				5E3B8976287D50BF00048C25 /* JJCarouselHiddenPageView.swift */,
+				5E3B8977287D50BF00048C25 /* JJCarouselDotPageView.swift */,
+				5E3B8979287D50BF00048C25 /* JJCarouselNumberPageView.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 		C281EAAFB48684A8CF0DBB15 /* Pods */ = {
@@ -299,21 +313,23 @@
 				5E0344722800042E00CB9C82 /* JJCarouselView.swift in Sources */,
 				5E34ACC628114BE3003EB1E4 /* UIColor+Extension.swift in Sources */,
 				5E0344612800037900CB9C82 /* ViewController.swift in Sources */,
+				5E3B897B287D50BF00048C25 /* JJCarouselDotPageView.swift in Sources */,
+				5E3B8974287D198700048C25 /* Direction.swift in Sources */,
 				5E03445D2800037900CB9C82 /* AppDelegate.swift in Sources */,
-				5E874BDF2806953C0046F4DC /* FullCarouselContainerView.swift in Sources */,
 				5EF487CC280E40180093B98E /* TabBarViewController.swift in Sources */,
 				5E2F818528041939008A511C /* Event.swift in Sources */,
-				5E03447C280004F000CB9C82 /* JJCarouselDotPageView.swift in Sources */,
-				5E0344802800086300CB9C82 /* JJCarouselHiddenPageView.swift in Sources */,
-				5E03447E2800051800CB9C82 /* JJCarouselNumberPageView.swift in Sources */,
 				5E874BE12806A6710046F4DC /* JJCarouselContainerView.swift in Sources */,
 				5E03445F2800037900CB9C82 /* SceneDelegate.swift in Sources */,
 				5E0344782800049D00CB9C82 /* CellContainer.swift in Sources */,
 				5E03447A280004BC00CB9C82 /* JJCarouselViewPageable.swift in Sources */,
+				5E3B897D287D50BF00048C25 /* JJCarouselNumberPageView.swift in Sources */,
 				5E03449528001C3800CB9C82 /* WebCarouselModel.swift in Sources */,
+				5E3B897A287D50BF00048C25 /* JJCarouselHiddenPageView.swift in Sources */,
+				5E3B897C287D50BF00048C25 /* FullCarouselContainerView.swift in Sources */,
 				5E874BE32806AEEB0046F4DC /* Style.swift in Sources */,
 				5E0344762800047B00CB9C82 /* Config.swift in Sources */,
 				5E03449728001C6800CB9C82 /* WebCarouselView.swift in Sources */,
+				5E3B8972287D190700048C25 /* JJCarousel+namespace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +475,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,6 +503,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

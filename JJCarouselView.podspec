@@ -1,4 +1,4 @@
-@version = "0.0.7"
+@version = "0.0.8"
 Pod::Spec.new do |spec|
   spec.name         = "JJCarouselView"
   spec.version      = @version
