@@ -2,7 +2,7 @@
 //  Style.swift
 //  JJCarouselView
 //
-//  Created by zgjff on 2022/4/13.
+//  Created by 郑桂杰 on 2022/4/13.
 //
 
 import CoreGraphics
@@ -10,7 +10,7 @@ import CoreGraphics
 extension JJCarouselView {
     /// 轮播图风格
     public enum Style {
-        /// 平铺式-----单个cell充满整个轮播图容器
+        /// 单个cell充满整个轮播图容器
         case full
         // TODO: - 其它风格
     }

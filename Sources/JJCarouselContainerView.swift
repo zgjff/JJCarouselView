@@ -2,7 +2,7 @@
 //  JJCarouselContainerView.swift
 //  JJCarouselView
 //
-//  Created by zgjff on 2022/4/13.
+//  Created by 郑桂杰 on 2022/4/13.
 //
 
 import UIKit
@@ -37,8 +37,8 @@ protocol JJCarouselContainerViewDelegate: NSObjectProtocol {
 
 /// 轮播图容器数据源
 protocol JJCarouselContainerViewDataSource: NSObjectProtocol {
-    /// 轮播方向
-    func loopDirection() -> JJCarousel.Direction
+    /// 是否是水平滑动
+    func isHorizontalScroll() -> Bool
     /// 数据源数量
     func numberOfDatas() -> Int
     /// 轮播图内边局

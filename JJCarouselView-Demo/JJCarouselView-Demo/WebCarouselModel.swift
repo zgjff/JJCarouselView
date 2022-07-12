@@ -2,7 +2,7 @@
 //  WebCarouselModel.swift
 //  JJCarouselView-Demo
 //
-//  Created by zgjff on 2022/4/8.
+//  Created by 郑桂杰 on 2022/4/8.
 //
 
 import Foundation
