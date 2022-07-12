@@ -2,17 +2,19 @@
 //  ViewController.swift
 //  JJCarouselView-Demo
 //
-//  Created by 郑桂杰 on 2022/4/8.
+//  Created by zgjff on 2022/4/8.
 //
 
 import UIKit
 import SDWebImage
 import SafariServices
+import Combine
 
 class ViewController: UIViewController {
 
     private lazy var scrollView = UIScrollView()
     private lazy var subviewsMaxY: CGFloat = 0
+    private lazy var cancellable = Set<AnyCancellable>()
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -26,6 +28,7 @@ class ViewController: UIViewController {
 
 private extension ViewController {
     func setup() {
+        navigationItem.title = "可以切换tabbar来观察轮播图是否暂停"
         scrollView.frame = view.bounds
         view.addSubview(scrollView)
     }
@@ -37,7 +40,7 @@ private extension ViewController {
             cell.contentMode = .scaleAspectFill
             cell.image = object
         }
-//        carouselView.config.autoLoop = false
+        carouselView.config.direction = .rtl
         carouselView.backgroundColor = .random()
         carouselView.event.onTap = { _, obj, idx in
             print(obj, idx)
@@ -49,22 +52,34 @@ private extension ViewController {
             print("didMove----", idx)
         }
         carouselView.event.onScroll = { fromIndex, toIndex, progress in 
-            print("onScroll----", fromIndex, toIndex, progress)
+//            print("onScroll----", fromIndex, toIndex, progress)
         }
+        carouselView.event.onTapPublisher.sink { _, _, idx in
+//            print("onTapPublisher-----------", idx)
+        }.store(in: &cancellable)
+        carouselView.event.onScrollPublisher.sink(receiveValue: { fromIndex, toIndex, progress in
+//            print("onScrollPublisher----", fromIndex, toIndex, progress)
+        }).store(in: &cancellable)
+        carouselView.event.willMovePublisher.sink(receiveValue: { idx in
+//            print("willMovePublisher-----------", idx)
+        }).store(in: &cancellable)
+        carouselView.event.didMovePublisher.sink(receiveValue: { idx in
+//            print("didMovePublisher-----------", idx)
+        }).store(in: &cancellable)
         subviewsMaxY = carouselView.frame.maxY
         scrollView.addSubview(carouselView)
         carouselView.datas = (0..<6).map { UIImage(named: "a-\($0).jpeg")! }
     }
     
     func addLocalImageCarouselView2() {
-        let carouselView: JJCarouselView<UIImageView, UIImage> = JJCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200)) {
+        let carouselView = JJLocalImageCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200)) {
             return UIImageView()
         }
         carouselView.config.display = { cell, object in
             cell.contentMode = .scaleAspectFit
             cell.image = object
         }
-        carouselView.config.direction = .vertical
+        carouselView.config.direction = .ttb
         carouselView.config.pageViewFrame = { pageView, _, carouselViewSize, totalDataCount in
             let pageSize = pageView.size(forNumberOfPages: totalDataCount)
             return CGRect(x: carouselViewSize.width - pageSize.width - 12, y: carouselViewSize.height - pageSize.height - 10, width: pageSize.width, height: pageSize.height)
@@ -72,11 +87,11 @@ private extension ViewController {
         carouselView.pageView = JJCarouselNumberPageView()
         subviewsMaxY = carouselView.frame.maxY
         scrollView.addSubview(carouselView)
-        carouselView.datas = (0..<2).map { UIImage(named: "a-\($0).jpeg")! }
+        carouselView.datas = (0..<3).map { UIImage(named: "a-\($0).jpeg")! }
     }
     
     func addWebImageCarouselView() {
-        let carouselView: JJCarouselView<UIImageView, URL> = JJCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200))
+        let carouselView = JJWebImageCarouselView(frame: CGRect(x: 50, y: subviewsMaxY + 30, width: view.bounds.width - 100, height: 200))
         carouselView.config.display = { cell, object in
             cell.clipsToBounds = true
             cell.contentMode = .scaleAspectFill

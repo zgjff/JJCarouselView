@@ -2,10 +2,16 @@
 //  JJCarouselView.swift
 //  JJCarouselView
 //
-//  Created by 郑桂杰 on 2022/4/8.
+//  Created by zgjff on 2022/4/8.
 //
 
 import UIKit
+
+/// 展示`UIImage`的轮播图别名
+public typealias JJLocalImageCarouselView = JJCarouselView<UIImageView, UIImage>
+
+/// 展示网络图片的轮播图别名
+public typealias JJWebImageCarouselView = JJCarouselView<UIImageView, URL>
 
 /// 轮播图组件
 public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView {
@@ -18,11 +24,10 @@ public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView {
             onGetDatas(old: oldValue, new: datas)
         }
     }
-    
-    /// 单个容器的事件
+    /// 事件回调
     public var event = Event()
     
-    /// 用于设置轮播图的
+    /// 用于设置轮播图的指示器
     public var pageView: JJCarouselViewPageable = JJCarouselDotPageView() {
         didSet {
             oldValue.removeFromSuperview()
@@ -99,9 +104,9 @@ public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView {
 }
 
 // MARK: - JJCarouselContainerViewDataSource, JJCarouselContainerViewDelegate
-extension JJCarouselView: JJCarouselContainerViewDataSource, JJCarouselContainerViewDelegate {
-    func isHorizontalScroll() -> Bool {
-        return config.direction == .horizontal
+extension JJCarouselView: JJCarouselContainerViewDataSource, JJCarouselContainerViewDelegate {    
+    func loopDirection() -> JJCarousel.Direction {
+        return config.direction
     }
     
     func numberOfDatas() -> Int {
@@ -120,22 +125,22 @@ extension JJCarouselView: JJCarouselContainerViewDataSource, JJCarouselContainer
     
     func onClickCell(_ cell: UIView, atIndex index: Int) {
         if let cell = cell as? Cell {
-            event.onTap?(cell, datas[index], index)
+            event.onTapFunction(view: cell, object: datas[index], index: index)
         }
     }
     
     func willScroll(to index: Int) {
-        event.willMove?(index)
+        event.willMoveFunction(index: index)
     }
     
     func onScroll(from fromIndex: Int, to toIndex: Int, progress: Float) {
-        event.onScroll?(fromIndex, toIndex, progress)
+        event.onScrollFunction(fronIndex: fromIndex, toIndex: toIndex, progress: progress)
         pageView.onScroll(from: fromIndex, to: toIndex, progress: progress)
     }
     
     func didScroll(to index: Int) {
         pageView.currentPage = index
-        event.didMove?(index)
+        event.didMoveFunction(index: index)
     }
     
     func scrollViewWillBeginDragging() {
@@ -222,8 +227,8 @@ private extension JJCarouselView {
             }
             self.containerView.needAutoScrollToNextIndex()
         }
-        RunLoop.current.add(timer, forMode: .common)
         self.timer = timer
+        RunLoop.current.add(timer, forMode: .common)
     }
     
     func pauseTimer() {

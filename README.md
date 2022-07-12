@@ -5,7 +5,7 @@ JJCarouselView
 [![swift-5.0](https://img.shields.io/badge/swift-5.0-blue)](https://www.swift.org)
 ![iOS-11.0](https://img.shields.io/badge/iOS-11.0-red)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/zgjff/JJCarouselView)](https://github.com/zgjff/JJCarouselView)
-[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://www.swift.org/package-manager/)
+[![SwiftPM support](https://img.shields.io/badge/SwiftPM-support-brightgreen)](https://www.swift.org/package-manager/)
 [![Cocoapods](https://img.shields.io/cocoapods/v/JJCarouselView)](https://cocoapods.org/pods/JJCarouselView)
 
 适用于Swift的简单好用、易于扩展的轮播图框架
@@ -26,9 +26,9 @@ let carouselView: JJCarouselView<UIImageView, UIImage> = JJCarouselView(frame: C
 ## 二、使用方法
 
 ### 2.1 基本设置
-轮播图方向,默认横向轮播
+轮播图方向,默认从左->右
 ```swift
-cv.config.direction = .vertical
+cv.config.direction = .ltr
 ```
 
 是否自动轮播,默认`true`自动轮播
@@ -52,7 +52,7 @@ cv.config.contentInset = .zero
 
 #### 2.2.1 以最基本的展示本地图片的轮播图为例:
 ```swift
-let carouselView: JJCarouselView<UIImageView, UIImage>
+let carouselView: JJLocalImageCarouselView
 cv.config.display = { cell, image in
     cell.clipsToBounds = true
     cell.contentMode = .scaleAspectFill
@@ -62,7 +62,7 @@ cv.config.display = { cell, image in
 
 #### 2.2.2 展示网络图片
 ```swift
-let carouselView: JJCarouselView<UIImageView, URL>
+let carouselView: JJWebImageCarouselView
 cv.config.display = { cell, url in
     ...
     // 使用SDWebImage
@@ -146,36 +146,56 @@ cv.config.pageViewFrame = { _, _, carouselViewSize, _ in
 
 点击事件
 ```swift
+// 使用block
 cv.event.onTap = { view, obj, index in
     ...
 }
+// 使用Combine框架
+cv.event.onTapPublisher.sink { view, obj, idx in
+    ...
+}.store(in: &cancellable)
 ```
 准备滑动到具体的index
 ```swift
+// 使用block
 cv.event.willMove = { idx in
     ...
 }
+// 使用Combine框架
+cv.event.willMovePublisher.sink(receiveValue: { idx in
+    ...
+}).store(in: &cancellable)
 ```
 已经滑动到具体的index
 ```swift
+// 使用block
 cv.event.didMove = { idx in
     ...
 }
+// 使用Combine框架
+cv.event.didMovePublisher.sink(receiveValue: { idx in
+    ...
+}).store(in: &cancellable)
 ```
 滑动回调(当前index, 目标index, 进度)
 ```swift
+// 使用block
 cv.event.onScroll = { fromIndex, toIndex, progress in 
     ...
 }
+// 使用Combine框架
+cv.event.onScrollPublisher.sink(receiveValue: { fromIndex, toIndex, progress in
+    ...
+}).store(in: &cancellable)
 ```
 
 
-Requirements
+使用需求
 =================
 * iOS 11.0+
 * Swift 5+
 
-Installation
+安装
 =================
 Swift Package Manager
 * File > Swift Packages > Add Package Dependency
