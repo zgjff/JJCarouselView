@@ -14,14 +14,15 @@ class ViewController: UIViewController {
 
     private lazy var scrollView = UIScrollView()
     private lazy var subviewsMaxY: CGFloat = 0
+    @available(iOS 13.0, *)
     private lazy var cancellable = Set<AnyCancellable>()
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         addLocalImageCarouselView1()
-//        addLocalImageCarouselView2()
-//        addWebImageCarouselView()
-//        addCustomCarouselView()
+        addLocalImageCarouselView2()
+        addWebImageCarouselView()
+        addCustomCarouselView()
         scrollView.contentSize = CGSize(width: view.bounds.width, height: subviewsMaxY + 20)
     }
 }
@@ -54,18 +55,20 @@ private extension ViewController {
         carouselView.event.onScroll = { fromIndex, toIndex, progress in 
 //            print("onScroll----", fromIndex, toIndex, progress)
         }
-        carouselView.event.onTapPublisher.sink { _, _, idx in
-//            print("onTapPublisher-----------", idx)
-        }.store(in: &cancellable)
-        carouselView.event.onScrollPublisher.sink(receiveValue: { fromIndex, toIndex, progress in
-//            print("onScrollPublisher----", fromIndex, toIndex, progress)
-        }).store(in: &cancellable)
-        carouselView.event.willMovePublisher.sink(receiveValue: { idx in
-//            print("willMovePublisher-----------", idx)
-        }).store(in: &cancellable)
-        carouselView.event.didMovePublisher.sink(receiveValue: { idx in
-//            print("didMovePublisher-----------", idx)
-        }).store(in: &cancellable)
+        if #available(iOS 13.0, *) {
+            carouselView.event.onTapPublisher.sink { _, _, idx in
+                //            print("onTapPublisher-----------", idx)
+            }.store(in: &cancellable)
+            carouselView.event.onScrollPublisher.sink(receiveValue: { fromIndex, toIndex, progress in
+    //            print("onScrollPublisher----", fromIndex, toIndex, progress)
+            }).store(in: &cancellable)
+            carouselView.event.willMovePublisher.sink(receiveValue: { idx in
+    //            print("willMovePublisher-----------", idx)
+            }).store(in: &cancellable)
+            carouselView.event.didMovePublisher.sink(receiveValue: { idx in
+    //            print("didMovePublisher-----------", idx)
+            }).store(in: &cancellable)
+        }
         subviewsMaxY = carouselView.frame.maxY
         scrollView.addSubview(carouselView)
         carouselView.datas = (0..<6).map { UIImage(named: "a-\($0).jpeg")! }

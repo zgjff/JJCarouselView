@@ -20,7 +20,11 @@ extension JJCarouselView {
             scrollView.bounces = false
             scrollView.showsVerticalScrollIndicator = false
             scrollView.showsHorizontalScrollIndicator = false
-            scrollView.contentInsetAdjustmentBehavior = .never
+            if #available(iOS 11.0, *) {
+                scrollView.contentInsetAdjustmentBehavior = .never
+            } else {
+                // Fallback on earlier versions
+            }
             firstContainer = CellContainer(cell: initialize?() ?? Cell(frame: .zero), index: 0)
             secondContainer = CellContainer(cell: initialize?() ?? Cell(frame: .zero), index: 1)
             thirdContainer = CellContainer(cell: initialize?() ?? Cell(frame: .zero), index: 2)

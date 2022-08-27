@@ -101,6 +101,12 @@ public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView {
     @IBAction private func resumeTimer() {
         timer?.fireDate = Date()
     }
+    
+    @IBAction private func loopTimer_below10() {
+        if !datas.isEmpty {
+            containerView.needAutoScrollToNextIndex()
+        }
+    }
 }
 
 // MARK: - JJCarouselContainerViewDataSource, JJCarouselContainerViewDelegate
@@ -221,14 +227,20 @@ private extension JJCarouselView {
         if !config.autoLoop {
             return
         }
-        let timer = Timer(fire: Date().addingTimeInterval(config.loopTimeInterval), interval: config.loopTimeInterval, repeats: true) { [weak self] _ in
-            guard let self = self, !self.datas.isEmpty else {
-                return
+        if #available(iOS 10.0, *) {
+            let timer = Timer(fire: Date().addingTimeInterval(config.loopTimeInterval), interval: config.loopTimeInterval, repeats: true) { [weak self] _ in
+                guard let self = self, !self.datas.isEmpty else {
+                    return
+                }
+                self.containerView.needAutoScrollToNextIndex()
             }
-            self.containerView.needAutoScrollToNextIndex()
+            self.timer = timer
+            RunLoop.current.add(timer, forMode: .common)
+        } else {
+            let timer = Timer(fireAt: Date().addingTimeInterval(config.loopTimeInterval), interval: config.loopTimeInterval, target: self, selector: #selector(loopTimer_below10), userInfo: nil, repeats: true)
+            self.timer = timer
+            RunLoop.current.add(timer, forMode: .common)
         }
-        self.timer = timer
-        RunLoop.current.add(timer, forMode: .common)
     }
     
     func pauseTimer() {

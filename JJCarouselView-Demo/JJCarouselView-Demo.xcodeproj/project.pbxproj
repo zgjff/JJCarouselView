@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5E03445D2800037900CB9C82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03445C2800037900CB9C82 /* AppDelegate.swift */; };
-		5E03445F2800037900CB9C82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03445E2800037900CB9C82 /* SceneDelegate.swift */; };
 		5E0344612800037900CB9C82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0344602800037900CB9C82 /* ViewController.swift */; };
 		5E0344662800037A00CB9C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E0344652800037A00CB9C82 /* Assets.xcassets */; };
 		5E0344692800037A00CB9C82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0344672800037A00CB9C82 /* LaunchScreen.storyboard */; };
@@ -44,7 +43,6 @@
 		359CE58ED333B2505B5CDAA4 /* Pods-JJCarouselView-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJCarouselView-Demo.release.xcconfig"; path = "Target Support Files/Pods-JJCarouselView-Demo/Pods-JJCarouselView-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		5E0344592800037900CB9C82 /* JJCarouselView-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JJCarouselView-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E03445C2800037900CB9C82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5E03445E2800037900CB9C82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5E0344602800037900CB9C82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5E0344652800037A00CB9C82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E0344682800037A00CB9C82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			children = (
 				5E0344872800109700CB9C82 /* Images */,
 				5E03445C2800037900CB9C82 /* AppDelegate.swift */,
-				5E03445E2800037900CB9C82 /* SceneDelegate.swift */,
 				5EF487CB280E40180093B98E /* TabBarViewController.swift */,
 				5E0344602800037900CB9C82 /* ViewController.swift */,
 				5E03449628001C6800CB9C82 /* WebCarouselView.swift */,
@@ -319,7 +316,6 @@
 				5EF487CC280E40180093B98E /* TabBarViewController.swift in Sources */,
 				5E2F818528041939008A511C /* Event.swift in Sources */,
 				5E874BE12806A6710046F4DC /* JJCarouselContainerView.swift in Sources */,
-				5E03445F2800037900CB9C82 /* SceneDelegate.swift in Sources */,
 				5E0344782800049D00CB9C82 /* CellContainer.swift in Sources */,
 				5E03447A280004BC00CB9C82 /* JJCarouselViewPageable.swift in Sources */,
 				5E3B897D287D50BF00048C25 /* JJCarouselNumberPageView.swift in Sources */,
@@ -475,7 +471,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -503,7 +499,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
