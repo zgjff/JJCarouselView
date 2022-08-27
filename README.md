@@ -3,7 +3,7 @@ JJCarouselView
 
 [![GitHub](https://img.shields.io/github/license/zgjff/JJCarouselView)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![swift-5.0](https://img.shields.io/badge/swift-5.0-blue)](https://www.swift.org)
-![iOS-11.0](https://img.shields.io/badge/iOS-11.0-red)
+![iOS-9.0](https://img.shields.io/badge/iOS-9.0-red)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/zgjff/JJCarouselView)](https://github.com/zgjff/JJCarouselView)
 [![SwiftPM support](https://img.shields.io/badge/SwiftPM-support-brightgreen)](https://www.swift.org/package-manager/)
 [![Cocoapods](https://img.shields.io/cocoapods/v/JJCarouselView)](https://cocoapods.org/pods/JJCarouselView)
@@ -192,7 +192,7 @@ cv.event.onScrollPublisher.sink(receiveValue: { fromIndex, toIndex, progress in
 
 使用需求
 =================
-* iOS 11.0+
+* iOS 9.0+
 * Swift 5+
 
 安装
