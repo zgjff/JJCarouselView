@@ -72,6 +72,8 @@ extension JJCarouselView {
             }
         }
         
+        private var manualSlidingEnable = true
+        
         override func layoutSubviews() {
             super.layoutSubviews()
             currentFrame = bounds
@@ -170,6 +172,12 @@ extension JJCarouselView {
                 scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
             }
         }
+        
+        func dealManualSliding(enable: Bool) {
+            manualSlidingEnable = enable
+            let dataCount = dataSource?.numberOfDatas() ?? 0
+            scrollView.isScrollEnabled = enable ? (dataCount > 1) : false
+        }
     }
 }
 
@@ -216,7 +224,7 @@ private extension JJCarouselView.FullContainerView {
     
     func onGetDatas() {
         let dataCount = dataSource?.numberOfDatas() ?? 0
-        scrollView.isScrollEnabled = dataCount > 1
+        scrollView.isScrollEnabled = manualSlidingEnable ? (dataCount > 1) : false
         switch dataCount {
         case 0:
             [firstContainer, secondContainer, thirdContainer].forEach { $0.cell.isHidden = true }

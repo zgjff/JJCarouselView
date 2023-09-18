@@ -16,7 +16,11 @@ public typealias JJWebImageCarouselView = JJCarouselView<UIImageView, URL>
 /// 轮播图组件
 public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView {
     /// 配置
-    public var config = Config()
+    public var config = Config() {
+        didSet {
+            containerView.dealManualSliding(enable: config.manualSlidingEnable)
+        }
+    }
     
     /// 数据源
     public var datas: [Object] = [] {
@@ -24,6 +28,7 @@ public final class JJCarouselView<Cell: UIView, Object: Equatable>: UIView {
             onGetDatas(old: oldValue, new: datas)
         }
     }
+    
     /// 事件回调
     public var event = Event()
     

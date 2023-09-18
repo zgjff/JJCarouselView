@@ -39,6 +39,7 @@ private extension ViewController {
             cell.contentMode = .scaleAspectFill
             cell.image = object
         }
+        carouselView.config.manualSlidingEnable = false
         carouselView.config.direction = .rtl
         carouselView.backgroundColor = .random()
         carouselView.event.onTap = { _, obj, idx in

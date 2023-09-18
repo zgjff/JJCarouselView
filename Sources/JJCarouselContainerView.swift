@@ -15,6 +15,8 @@ protocol JJCarouselContainerView: UIView {
     func reload()
     /// 需要滑动下一位置
     func needAutoScrollToNextIndex()
+    /// 处理能否手动滑动
+    func dealManualSliding(enable: Bool)
 }
 
 /// 轮播图容器代理

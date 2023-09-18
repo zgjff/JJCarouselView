@@ -16,6 +16,9 @@ extension JJCarouselView {
         /// 是否自动轮播,默认`true`自动轮播
         public var autoLoop = true
         
+        /// 能否手动滑动,默认`true`可以手动滑动
+        public var manualSlidingEnable = true
+        
         /// 轮播间隔,默认5s
         public var loopTimeInterval: TimeInterval = 5
         
